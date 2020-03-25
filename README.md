@@ -38,7 +38,7 @@ Ejercicios básicos
 
 	`Gràfica amb PYTHON`
 
-			<img src="img/python.png" width="720" align="center">
+	<img src="img/python.png" width="720" align="center">
 
 	`Codi utilitzat:`
 
@@ -116,13 +116,13 @@ Ejercicios básicos
 	    Recuerde configurar los paneles de datos para que el desplazamiento de ventana sea el adecuado, que
 		en esta práctica es de 15 ms.
 
-			<img src="img/wave1.png" width="720" align="center">
+	<img src="img/wave1.png" width="720" align="center">
 
       - Use el detector de pitch implementado en el programa `wavesurfer` en una señal de prueba y compare
 	    su resultado con el obtenido por la mejor versión de su propio sistema.  Inserte una gráfica
 		ilustrativa del resultado de ambos detectores.
 
-			<img src="img/wave2.png" width="720" align="center">
+	<img src="img/wave2.png" width="720" align="center">
   
   * Optimice los parámetros de su sistema de detección de pitch e inserte una tabla con las tasas de error
     y el *score* TOTAL proporcionados por `pitch_evaluate` en la evaluación de la base de datos 
