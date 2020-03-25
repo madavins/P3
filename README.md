@@ -15,6 +15,20 @@ Ejercicios básicos
 
    * Complete el cálculo de la autocorrelación e inserte a continuación el código correspondiente.
 
+	```cpp
+ 	for (unsigned int l = 0; l < r.size(); ++l)
+  	{
+    	
+    	for (unsigned int n = 0; n < (x.size() - l); n++)
+    	{
+      	    r[l] = r[l] + x[n] * x[n + l];
+    	}
+
+    	r[l] = (1.0F / x.size()) * r[l];
+
+  	}
+	```
+
    * Inserte una gŕafica donde, en un *subplot*, se vea con claridad la señal temporal de un sonido sonoro
      y su periodo de pitch; y, en otro *subplot*, se vea con claridad la autocorrelación de la señal y la
 	 posición del primer máximo secundario.
