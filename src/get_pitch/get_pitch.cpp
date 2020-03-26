@@ -63,7 +63,7 @@ int main(int argc, const char *argv[])
   // Define analyzer
   PitchAnalyzer analyzer(n_len, rate, PitchAnalyzer::HAMMING, 50, 500);
 
-  /// \TODO
+  /// \DONE
   /// Preprocess the input signal in order to ease pitch estimation. For instance,
   /// central-clipping or low pass filtering may be used.
 
@@ -134,7 +134,7 @@ int main(int argc, const char *argv[])
     f0.push_back(f);
   }
 
-  /// \TODO
+  /// \DONE
   /// Postprocess the estimation in order to supress errors. For instance, a median filter
   /// or time-warping may be used.
 

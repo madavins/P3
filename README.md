@@ -210,7 +210,7 @@ Ejercicios básicos
 
 * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
 
-	*Després de jugar amb els diferents llindars, el que ens ha resultat més precís ha estat el que
+	Després de jugar amb els diferents llindars, el que ens ha resultat més precís ha estat el que
 	es mostra en el codi a continuació, on principalment hem establert un total de 4 condicions per a 
 	determinar si es tractava d'un VOICED o UNVOICED sound (només s'ha de complir una de les quatre
 	per a determinar el so com a unvoiced):
@@ -224,7 +224,7 @@ Ejercicios básicos
 	última condició, combinant els dos paràmetres R1Norm i RMaxNorm, establint que si aquests dos
 	es troben alhora per sota dels llindars establerts (menys restrictius que a les condicions 2. i 3.)
 	decretem el segment com UNVOICED. D'aquesta manera podem corregir els punts on un dels dos paràmetres
-	pren un valor erroni o incoherent, i compensem així aquest tipus d'errors.*
+	pren un valor erroni o incoherent, i compensem així aquest tipus d'errors.
 
 ```cpp
 if (pot < -50.5 || r1norm < 0.70 || rmaxnorm < 0.3 || (r1norm < 0.935 && rmaxnorm < 0.4))
@@ -293,6 +293,9 @@ de pitch molt elevat (87% d'accuracy aproximadament).
    * Inserte una gráfica en la que se vea con claridad el resultado de su detector de pitch junto al del
      detector de Wavesurfer. Aunque puede usarse Wavesurfer para obtener la representación, se valorará
 	 el uso de alternativas de mayor calidad (particularmente Python).
+
+<img src="img/results1.png" width="640" align="center">
+<img src="img/results2.png" width="640" align="center">
    
 
 Ejercicios de ampliación
