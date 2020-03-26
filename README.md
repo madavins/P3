@@ -98,6 +98,52 @@ Ejercicios básicos
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
 
+     ```cpp
+  	vector<float>::const_iterator iR = r.begin(), iRMax = iR;
+  	//Creem dos iteradors auxiliars, que pendran els valors immediament inferior i posterior
+  	//al valor de la posició actual de l'iterador
+  	vector<float>::const_iterator iRanterior = r.begin();
+  	vector<float>::const_iterator iRposterior = r.begin();
+
+  	//Iniciem iRposterior
+  	iRposterior = iR + 1;
+
+  	/*Bucle que serveix per establir el miním valor coherent del segon pic de l'autocorrelació
+    	Utilitzem 3 condicions:
+    	- 1era condició: Ens assegura que arribem fins abaix del primer pic de l'autocorrelació
+    	- 2na condició: Ens assegura, en cas que el primer pic baixi molt ràpid, que superem el valor
+    	  mínim establert 
+    	- 3era condició: Ens assegura que en cas de tenir un primer pic molt ample, avançem el suficient
+      com per a no pendre com a segon pic un valor que encara sigui del primer pic
+  	*/
+  	while (*iR > *iRposterior || iR < r.begin() + npitch_min || *iR > 0.0F)
+  	{
+    	++iR;
+    	++iRposterior;
+  	}
+
+  	iRMax = iR;
+
+  	/* Un cop hem establert el valor mínim coherent de la distancia al segon pic,
+  	comprovem fent ús de iRanterior i iRposterior que iRMax es trobi en un pic, comprovant
+  	que iR és a l'hora major que iRanterior i iRposterior
+     	- Establim com a condició que iR no pot superar el llindar npitch_max - 
+  	*/
+  	while (iR < r.begin() + npitch_max)
+  	{
+    	if (*iR > *iRMax)
+    	{
+      	iRanterior = iR - 1;
+      	iRposterior = iR + 1;
+      	if (*iR > *iRanterior && *iR > *iRposterior)
+        iRMax = iR;
+    	}
+    	++iR;
+  	}
+
+  	unsigned int lag = iRMax - r.begin();
+   	```
+
    * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
 
 - Una vez completados los puntos anteriores, dispondrá de una primera versión del detector de pitch. El 

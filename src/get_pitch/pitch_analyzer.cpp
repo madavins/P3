@@ -75,7 +75,7 @@ bool PitchAnalyzer::unvoiced(float pot, float r1norm, float rmaxnorm) const
   //const float r1 = 0.84;
   //const float rmax = 0.285;
   //const float pot = -50.5;
-  if (pot < -50.5 || r1norm < 0.84 || rmaxnorm < 0.285)
+  if (pot < -50.5 || r1norm < 0.70 || rmaxnorm < 0.3 || (r1norm < 0.935 && rmaxnorm < 0.4))
   {
     return true;
   }
@@ -100,9 +100,6 @@ float PitchAnalyzer::compute_pitch(vector<float> &x) const
   //Compute correlation
   autocorrelation(x, r);
 
-  vector<float>::const_iterator iR = r.begin(), iRMax = iR;
-  vector<float>::const_iterator iRanterior = r.begin();
-  vector<float>::const_iterator iRposterior = r.begin();
   /// \DONE
   /// Find the lag of the maximum value of the autocorrelation away from the origin.<br>
   /// Choices to set the minimum value of the lag are:
@@ -111,38 +108,37 @@ float PitchAnalyzer::compute_pitch(vector<float> &x) const
   ///	   .
   /// In either case, the lag should not exceed that of the minimum value of the pitch.
 
-  /*bool zerocros = false;
-  while (iR < r.begin() + npitch_min)
-  {
-    if (*iR < 0.0F)
-    {
-      zerocros = true;
-    }
-    ++iR;
-  }
-  if (!zerocros)
-  {
-    while (*iR > 0.0F)
-    {
-      ++iR;
-    }
-  }*/
 
-  /*if (iR < r.begin() + npitch_min)
-  {
-    iR = r.begin()+ npitch_min;
-  }*/
+  vector<float>::const_iterator iR = r.begin(), iRMax = iR;
+  //Creem dos iteradors auxiliars, que pendran els valors immediament inferior i posterior
+  //al valor de la posició actual de l'iterador
+  vector<float>::const_iterator iRanterior = r.begin();
+  vector<float>::const_iterator iRposterior = r.begin();
 
-  //iRMax = iR;
-  
+  //Iniciem iRposterior
   iRposterior = iR + 1;
 
-  while(*iR > *iRposterior || iR < r.begin()+npitch_min || *iR > 0.0F){
+  /*Bucle que serveix per establir el miním valor coherent del segon pic de l'autocorrelació
+    Utilitzem 3 condicions:
+    - 1era condició: Ens assegura que arribem fins abaix del primer pic de l'autocorrelació
+    - 2na condició: Ens assegura, en cas que el primer pic baixi molt ràpid, que superem el valor
+      mínim establert 
+    - 3era condició: Ens assegura que en cas de tenir un primer pic molt ample, avançem el suficient
+      com per a no pendre com a segon pic un valor que encara sigui del primer pic
+  */
+  while (*iR > *iRposterior || iR < r.begin() + npitch_min || *iR > 0.0F)
+  {
     ++iR;
     ++iRposterior;
   }
 
   iRMax = iR;
+
+  /* Un cop hem establert el valor mínim coherent de la distancia al segon pic,
+  comprovem fent ús de iRanterior i iRposterior que iRMax es trobi en un pic, comprovant
+  que iR és a l'hora major que iRanterior i iRposterior
+     - Establim com a condició que iR no pot superar el llindar npitch_max - 
+  */
   while (iR < r.begin() + npitch_max)
   {
     if (*iR > *iRMax)
@@ -164,7 +160,7 @@ float PitchAnalyzer::compute_pitch(vector<float> &x) const
   //change to #if 1 and compile
 #if 1
   //if (r[0] > 0.0F)
-  cout << fixed << setprecision(3) << pot << '\t' << '\t' << r[1]/r[0] << '\t' << '\t' << r[lag]/r[0]  << endl;
+  cout << fixed << setprecision(3) << pot << '\t' << '\t' << r[1] / r[0] << '\t' << '\t' << r[lag] / r[0] << endl;
 #endif
 
   if (unvoiced(pot, r[1] / r[0], r[lag] / r[0]))
