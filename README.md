@@ -114,35 +114,35 @@ Ejercicios básicos
     	- 2na condició: Ens assegura, en cas que el primer pic baixi molt ràpid, que superem el valor
     	  mínim establert 
     	- 3era condició: Ens assegura que en cas de tenir un primer pic molt ample, avançem el suficient
-      com per a no pendre com a segon pic un valor que encara sigui del primer pic
-  	*/
-  	while (*iR > *iRposterior || iR < r.begin() + npitch_min || *iR > 0.0F)
-  	{
-    	++iR;
-    	++iRposterior;
-  	}
+     com per a no pendre com a segon pic un valor que encara sigui del primer pic
+     */
+     while (*iR > *iRposterior || iR < r.begin() + npitch_min || *iR > 0.0F)
+     {
+      ++iR;
+      ++iRposterior;
+     }
 
-  	iRMax = iR;
+     iRMax = iR;
 
-  	/* Un cop hem establert el valor mínim coherent de la distancia al segon pic,
-  	comprovem fent ús de iRanterior i iRposterior que iRMax es trobi en un pic, comprovant
-  	que iR és a l'hora major que iRanterior i iRposterior
-     	- Establim com a condició que iR no pot superar el llindar npitch_max - 
-  	*/
-  	while (iR < r.begin() + npitch_max)
-  	{
-    	if (*iR > *iRMax)
-    	{
-      	iRanterior = iR - 1;
-      	iRposterior = iR + 1;
-      	if (*iR > *iRanterior && *iR > *iRposterior)
-        iRMax = iR;
-    	}
-    	++iR;
-  	}
+     /* Un cop hem establert el valor mínim coherent de la distancia al segon pic,
+     comprovem fent ús de iRanterior i iRposterior que iRMax es trobi en un pic, comprovant
+     que iR és a l'hora major que iRanterior i iRposterior
+     - Establim com a condició que iR no pot superar el llindar npitch_max - 
+     */
+     while (iR < r.begin() + npitch_max)
+     {
+       if (*iR > *iRMax)
+     {
+       iRanterior = iR - 1;
+       iRposterior = iR + 1;
+       if (*iR > *iRanterior && *iR > *iRposterior)
+       iRMax = iR;
+     }
+       ++iR;
+     }
 
-  	unsigned int lag = iRMax - r.begin();
-     ```
+    unsigned int lag = iRMax - r.begin();
+    ```
 
    * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
 
