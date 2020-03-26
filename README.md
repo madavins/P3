@@ -93,10 +93,11 @@ Ejercicios básicos
 	plt.show()
 	```
 
-	`Gràfica amb MATLAB
+	`Gràfica amb MATLAB`
 
 	<img src="img/matlab.png" width="720" align="center">
 
+	`Codi utilitzat:`
 
 	```matlab
 	close all;
