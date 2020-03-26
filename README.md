@@ -244,7 +244,7 @@ Ejercicios básicos
 	  que tots dos han de ser superiors aproximadament a 0.6 per a dir que estem en estat VOICED.
 	  
 
-    - Use el detector de pitch implementado en el programa `wavesurfer` en una señal de prueba y compare
+* Use el detector de pitch implementado en el programa `wavesurfer` en una señal de prueba y compare
 	    su resultado con el obtenido por la mejor versión de su propio sistema.  Inserte una gráfica
 		ilustrativa del resultado de ambos detectores.
 
