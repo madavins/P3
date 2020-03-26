@@ -259,6 +259,8 @@ de pitch molt elevat (87% d'accuracy aproximadament).
     y el *score* TOTAL proporcionados por `pitch_evaluate` en la evaluación de la base de datos 
 	`pitch_db/train`..
 
+<img src="img/score.png" width="720" align="center">
+
    * Inserte una gráfica en la que se vea con claridad el resultado de su detector de pitch junto al del
      detector de Wavesurfer. Aunque puede usarse Wavesurfer para obtener la representación, se valorará
 	 el uso de alternativas de mayor calidad (particularmente Python).
@@ -300,7 +302,16 @@ Ejercicios de ampliación
   También se valorará la realización de un estudio de los parámetros involucrados. Por ejemplo, si se opta
   por implementar el filtro de mediana, se valorará el análisis de los resultados obtenidos en función de
   la longitud del filtro.
-   
+
+
+### PREPROCESADO:  *CENTER CLIPPING*
+
+<img src="img/clipping.png" width="720" align="center">
+
+### POSTPROCESADO: *FILTRO DE MEDIANA*
+
+<img src="img/mediana.png" width="720" align="center">
+
 
 Evaluación *ciega* del detector
 -------------------------------
