@@ -229,12 +229,12 @@ Ejercicios básicos
 
 	
          - Observant els diferents paràmetres, podem extreure les conclusions següents:
-	 * Tal i com vam observar a la pràctica anterior, el paràmetre de la potència [dB] és un paràmetre que
+	 - Tal i com vam observar a la pràctica anterior, el paràmetre de la potència [dB] és un paràmetre que
  	  resulta útil si es combina amb d'altres paràmetres, ja que sinó, com podem veure, en segons quines
           parts de l'audio, aquesta no pateix canvis suficientment signficiatius com per utilitzar-la com a 
 	  criteri únic. Per tant, l'hem d'utilitzar establint un llindar no gaire restrictiu, com podria ser
 	  el de considerar Unvoiced als segments amb potència inferior als -70dB.
-	 * Pel que fa als paràmetres referents a l'autocorrelació, observem que presenten contorns similars
+	 - Pel que fa als paràmetres referents a l'autocorrelació, observem que presenten contorns similars
 	  a la gràfica del pitch, pero amb algunes irregularitats (sobretot Rmax normalitzada), per tant, 
 	  tal i com també hem comentat amb la potència, el més addient seria establir criteris que tinguin
 	  en compte els tres paràmetres a l'hora. Observem com el contorn de la gràfica de R1Norm s'assimila 
