@@ -93,6 +93,67 @@ Ejercicios básicos
 	plt.show()
 	```
 
+	`Gràfica amb MATLAB
+
+	<img src="img/matlab.png" width="720" align="center">
+
+
+	```matlab
+	close all;
+ 
+
+	file_name = 'adeu.wav';
+	[senyal, Fs] = audioread(file_name);
+ 
+
+	w = hamming(length(senyal));
+	senyal_finestra = senyal.*w;
+	subplot(3,1,1);
+	plot(senyal_finestra);
+	text(4538, 0.4068, "max 1");
+	text(4876, 0.3871, "max 2");
+	Fpitch1 = Fs/(4876-4538);
+	str1 = strcat("Fpitch = ", num2str(Fpitch1), " Hz");
+	t = text(6500,0.3, str1);
+	t.Color = 'red';
+	t.FontSize = 16;
+	ylabel('x[n]');
+	xlabel('Sample Number');
+	title('SENYAL SONOR','FontSize',14);
+ 
+
+	%%%%%%%%%%%%%%%%%%%
+	% AUTOCORRELACIÓ  %
+	%%%%%%%%%%%%%%%%%%%
+ 
+
+	autocorrelacio = xcorr(senyal_finestra);
+	subplot(3,1,2);
+	plot(autocorrelacio);
+	text(9408, 65.9, "Max secundari = 337", 'FontSize', 13);
+	Fpitch2 = Fs/(9408-9071);
+	str2 = strcat("Fpitch = ", num2str(Fpitch2), " Hz");
+	t = text(13000,50, str2);
+	t.Color = 'red';
+	t.FontSize = 16;
+	title('AUTOCORRELACIÓ','FontSize',14);
+	xlabel('Sample Number');
+	ylabel('r[n]');
+ 
+
+	%%%%%%%%%%%%%%%%%%%%
+	%MATLAB PITCH APROX%
+	%%%%%%%%%%%%%%%%%%%%
+ 
+
+	[f0, idx] = pitch(senyal, Fs);
+	subplot(3,1,3);
+	plot(idx, f0);
+	ylabel("FPitch [Hz]");
+	xlabel("Sample number");
+	title("MATLAB PITCH APROXIMATION",'FontSize',14);
+	```
+
 
 
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la

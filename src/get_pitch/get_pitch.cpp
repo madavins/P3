@@ -105,7 +105,8 @@ int main(int argc, const char *argv[])
     potencia += abs(x[i]) * abs(x[i]);
   }
   potencia = (1.0F / x.size()) * potencia;
-  CL = 0.3 * potencia;
+  
+  CL = 0.8 * potencia;
 
   //  Aplicamos el Center Clipping
   for (unsigned int i = 0; i < x.size(); i++)
