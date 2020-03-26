@@ -119,7 +119,21 @@ Ejercicios básicos
 
 	<img src="img/wave1.png" width="720" align="center">
 
-
+	Observant els diferents paràmetres, podem extreure les conclusions següents:
+	- Tal i com vam observar a la pràctica anterior, el paràmetre de la potència [dB] és un paràmetre que
+ 	  resulta útil si es combina amb d'altres paràmetres, ja que sinó, com podem veure, en segons quines
+          parts de l'audio, aquesta no pateix canvis suficientment signficiatius com per utilitzar-la com a 
+	  criteri únic. Per tant, l'hem d'utilitzar establint un llindar no gaire restrictiu, com podria ser
+	  el de considerar Unvoiced als segments amb potència inferior als -70dB.
+	- Pel que fa als paràmetres referents a l'autocorrelació, observem que presenten contorns similars
+	  a la gràfica del pitch, pero amb algunes irregularitats (sobretot Rmax normalitzada), per tant, 
+	  tal i com també hem comentat amb la potència, el més addient seria establir criteris que tinguin
+	  en compte els tres paràmetres a l'hora. Observem com el contorn de la gràfica de R1Norm s'assimila 
+          bastant a la del pitch, aleshores, per corregir els seus errors, per exemple, podriem considerar Unvoiced 
+          qualsevol trama que tingui o bé RmaxNorm o R1Norm per sota d'un cert llindar, ja que així evitem les 
+          irregularitats d'ambudes gràfiques. A simple vista és difícil establir els llindars, però podriem dir
+	  que tots dos han de ser superiors aproximadament a 0.6 per a dir que estem en estat VOICED.
+ 
       - Use el detector de pitch implementado en el programa `wavesurfer` en una señal de prueba y compare
 	    su resultado con el obtenido por la mejor versión de su propio sistema.  Inserte una gráfica
 		ilustrativa del resultado de ambos detectores.

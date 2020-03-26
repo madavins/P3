@@ -72,10 +72,10 @@ bool PitchAnalyzer::unvoiced(float pot, float r1norm, float rmaxnorm) const
   /// * You can use the standard features (pot, r1norm, rmaxnorm),
   ///   or compute and use other ones.
 
-  //const float r1 = 0.875;
+  //const float r1 = 0.84;
   //const float rmax = 0.285;
-  //const float pot = -51.5;
-  if (pot < -51.5 || r1norm < 0.875 || rmaxnorm < 0.285)
+  //const float pot = -50.5;
+  if (pot < -50.5 || r1norm < 0.84 || rmaxnorm < 0.285)
   {
     return true;
   }
