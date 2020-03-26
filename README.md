@@ -208,10 +208,10 @@ Ejercicios básicos
 
   * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
 
-*Després de jugar amb els diferents llindars, el que ens ha resultat més precís ha estat el que
-es mostra en el codi a continuació, on principalment hem establert un total de 4 condicions per a 
-determinar si es tractava d'un VOICED o UNVOICED sound (només s'ha de complir una de les quatre
-per a determinar el so com a unvoiced):
+	Després de jugar amb els diferents llindars, el que ens ha resultat més precís ha estat el que
+	es mostra en el codi a continuació, on principalment hem establert un total de 4 condicions per a 
+	determinar si es tractava d'un VOICED o UNVOICED sound (només s'ha de complir una de les quatre
+	per a determinar el so com a unvoiced):
 
 	1) Potència del so inferior a -50.5 dB
 	2) R1Normalitzada inferior al llindar mínim de 0.7
