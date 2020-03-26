@@ -118,7 +118,6 @@ Ejercicios básicos
 
 
 	<img src="img/wave1.png" width="720" align="center">
-
 	Observant els diferents paràmetres, podem extreure les conclusions següents:
 	 * Tal i com vam observar a la pràctica anterior, el paràmetre de la potència [dB] és un paràmetre que
  	  resulta útil si es combina amb d'altres paràmetres, ja que sinó, com podem veure, en segons quines
