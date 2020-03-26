@@ -144,7 +144,7 @@ Ejercicios básicos
      unsigned int lag = iRMax - r.begin();
     ```
 
-   * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
+  * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
 
 - Una vez completados los puntos anteriores, dispondrá de una primera versión del detector de pitch. El 
   resto del trabajo consiste, básicamente, en obtener las mejores prestaciones posibles con él.
