@@ -157,7 +157,7 @@ Ejercicios básicos
 
 
 
-   * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
+* Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
 
      ```cpp
@@ -206,7 +206,9 @@ Ejercicios básicos
      unsigned int lag = iRMax - r.begin();
     ```
 
-  * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
+
+
+* Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
 
 	Després de jugar amb els diferents llindars, el que ens ha resultat més precís ha estat el que
 	es mostra en el codi a continuació, on principalment hem establert un total de 4 condicions per a 
