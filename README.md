@@ -227,8 +227,8 @@ Ejercicios básicos
 
 	<img src="img/wave1.png" width="720" align="center">
 
-	```
-         Observant els diferents paràmetres, podem extreure les conclusions següents:
+	
+         - Observant els diferents paràmetres, podem extreure les conclusions següents:
 	 * Tal i com vam observar a la pràctica anterior, el paràmetre de la potència [dB] és un paràmetre que
  	  resulta útil si es combina amb d'altres paràmetres, ja que sinó, com podem veure, en segons quines
           parts de l'audio, aquesta no pateix canvis suficientment signficiatius com per utilitzar-la com a 
@@ -242,7 +242,7 @@ Ejercicios básicos
           qualsevol trama que tingui o bé RmaxNorm o R1Norm per sota d'un cert llindar, ja que així evitem les 
           irregularitats d'ambudes gràfiques. A simple vista és difícil establir els llindars, però podriem dir
 	  que tots dos han de ser superiors aproximadament a 0.6 per a dir que estem en estat VOICED.
-	  ```
+	  
 
     - Use el detector de pitch implementado en el programa `wavesurfer` en una señal de prueba y compare
 	    su resultado con el obtenido por la mejor versión de su propio sistema.  Inserte una gráfica
@@ -252,7 +252,7 @@ Ejercicios básicos
 
 ```
 Observem que a partir d'un petit ajustament en els paràmetres, ja obtenim un nivell de detecció de 
-de pitch molt elevat (87% d'accuracy aproximadament). `
+de pitch molt elevat (87% d'accuracy aproximadament). 
 ```
   
   * Optimice los parámetros de su sistema de detección de pitch e inserte una tabla con las tasas de error
