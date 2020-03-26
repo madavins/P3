@@ -99,17 +99,17 @@ Ejercicios básicos
      autocorrelación. Inserte a continuación el código correspondiente.
 
      ```cpp
-  	vector<float>::const_iterator iR = r.begin(), iRMax = iR;
-  	//Creem dos iteradors auxiliars, que pendran els valors immediament inferior i posterior
-  	//al valor de la posició actual de l'iterador
-  	vector<float>::const_iterator iRanterior = r.begin();
-  	vector<float>::const_iterator iRposterior = r.begin();
+     vector<float>::const_iterator iR = r.begin(), iRMax = iR;
+     //Creem dos iteradors auxiliars, que pendran els valors immediament inferior i posterior
+     //al valor de la posició actual de l'iterador
+     vector<float>::const_iterator iRanterior = r.begin();
+     vector<float>::const_iterator iRposterior = r.begin();
 
-  	//Iniciem iRposterior
-  	iRposterior = iR + 1;
+     //Iniciem iRposterior
+     iRposterior = iR + 1;
 
-  	/*Bucle que serveix per establir el miním valor coherent del segon pic de l'autocorrelació
-    	Utilitzem 3 condicions:
+     /*Bucle que serveix per establir el miním valor coherent del segon pic de l'autocorrelació
+      Utilitzem 3 condicions:
     	- 1era condició: Ens assegura que arribem fins abaix del primer pic de l'autocorrelació
     	- 2na condició: Ens assegura, en cas que el primer pic baixi molt ràpid, que superem el valor
     	  mínim establert 
@@ -142,7 +142,7 @@ Ejercicios básicos
   	}
 
   	unsigned int lag = iRMax - r.begin();
-   	```
+     ```
 
    * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
 
