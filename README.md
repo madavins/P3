@@ -208,6 +208,33 @@ Ejercicios básicos
 
   * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
 
+*Després de jugar amb els diferents llindars, el que ens ha resultat més precís ha estat el que
+es mostra en el codi a continuació, on principalment hem establert un total de 4 condicions per a 
+determinar si es tractava d'un VOICED o UNVOICED sound (només s'ha de complir una de les quatre
+per a determinar el so com a unvoiced):
+
+	1) Potència del so inferior a -50.5 dB
+	2) R1Normalitzada inferior al llindar mínim de 0.7
+	3) RMAXNormalitzada inferior al llindar mínim de 0.3
+
+	4) Finalment, com que jugar amb les 3 condicions anteriors de manera independent no ens permetia
+	discriminar amb precisió situacions on els paràmetres entraven en conflicte, vam afegir una
+	última condició, combinant els dos paràmetres R1Norm i RMaxNorm, establint que si aquests dos
+	es troben alhora per sota dels llindars establerts (menys restrictius que a les condicions 2. i 3.)
+	decretem el segment com UNVOICED. D'aquesta manera podem corregir els punts on un dels dos paràmetres
+	pren un valor erroni o incoherent, i compensem així aquest tipus d'errors.
+
+```cpp
+if (pot < -50.5 || r1norm < 0.70 || rmaxnorm < 0.3 || (r1norm < 0.935 && rmaxnorm < 0.4))
+  {
+    return true; //Unvoiced Sound
+  }
+  else
+  {
+    return false; //Voiced Sound
+  }
+```
+
 - Una vez completados los puntos anteriores, dispondrá de una primera versión del detector de pitch. El 
   resto del trabajo consiste, básicamente, en obtener las mejores prestaciones posibles con él.
 
@@ -259,7 +286,7 @@ de pitch molt elevat (87% d'accuracy aproximadament).
     y el *score* TOTAL proporcionados por `pitch_evaluate` en la evaluación de la base de datos 
 	`pitch_db/train`..
 
-<img src="img/score.png" width="720" align="center">
+<img src="img/score.png" width="640" align="center">
 
    * Inserte una gráfica en la que se vea con claridad el resultado de su detector de pitch junto al del
      detector de Wavesurfer. Aunque puede usarse Wavesurfer para obtener la representación, se valorará

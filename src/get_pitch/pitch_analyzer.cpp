@@ -78,11 +78,11 @@ bool PitchAnalyzer::unvoiced(float pot, float r1norm, float rmaxnorm) const
 
   if (pot < -50.5 || r1norm < 0.70 || rmaxnorm < 0.3 || (r1norm < 0.935 && rmaxnorm < 0.4))
   {
-    return true;
+    return true; //Unvoiced Sound
   }
   else
   {
-    return false;
+    return false; //Voiced Sound
   }
 }
 
