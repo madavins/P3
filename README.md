@@ -141,7 +141,7 @@ Ejercicios básicos
        ++iR;
      }
 
-    unsigned int lag = iRMax - r.begin();
+     unsigned int lag = iRMax - r.begin();
     ```
 
    * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
