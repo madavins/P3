@@ -355,8 +355,10 @@ utilitzant els fitxer de la base de dades.
 
 
 <img src="img/clipping.png" width="720" align="center">
+
 ```
-En aquest plot podem veure l'efecte del center clipping en una senyal sonora. És evident que eliminem part de la senyal que no ens és útil, però mantenim les parts que ens són més útils, és a dir, els màxims.
+En aquest plot podem veure l'efecte del center clipping en una senyal sonora. És evident que eliminem part de la senyal que
+no ens és útil, però mantenim les parts que ens són més útils, és a dir, els màxims.
 ```
 
 ### POSTPROCESADO: *FILTRO DE MEDIANA*
