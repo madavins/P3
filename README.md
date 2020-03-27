@@ -357,8 +357,34 @@ utilitzant els fitxer de la base de dades.
 <img src="img/clipping.png" width="720" align="center">
 
 ```
-En aquest plot podem veure l'efecte del center clipping en una senyal sonora. És evident que eliminem part de la senyal que
-no ens és útil, però mantenim les parts que ens són més útils, és a dir, els màxims.
+En aquest plot de Matlab podem veure l'efecte del center clipping en una senyal sonora. És evident que eliminem part de la
+senyal que no ens és útil, però mantenim les parts que ens són més útils, és a dir, els màxims.
+```
+```cpp
+for (unsigned int i = 0; i < x.size(); i++)//Càlcul del llindar
+  {
+    potencia += abs(x[i]) * abs(x[i]);
+  }
+  potencia = (1.0F / x.size()) * potencia;
+  
+  CL = 0.8 * potencia;
+
+  //  Apliquem el Center Clipping
+  for (unsigned int i = 0; i < x.size(); i++)
+  {
+    if (x[i] >= CL)
+    {
+      x[i] -= CL;
+    }
+    else if (abs(x[i]) < CL)
+    {
+      x[i] = 0;
+    }
+    else if (x[i] <= -CL)
+    {
+      x[i] += CL;
+    }
+  }
 ```
 
 ### POSTPROCESADO: *FILTRO DE MEDIANA*
@@ -378,6 +404,36 @@ que tampoc tenen rellevància en el resultat final.
 
 <img src="img/mediana.png" width="720" align="center">
 
+```cpp
+  unsigned int mida_finestra = 3;
+  float finestra[mida_finestra];
+  float aux_ord;
+
+  for (unsigned int i = 1; i < f0.size() - 1; ++i)
+  { //recorrem els elements respectant els limits de la finestra
+    for (unsigned int p = 0; p < mida_finestra; ++p)
+    { //guardem els elements de la finestra (-1 0 1 )
+      finestra[p] = f0[i - 1 + p];
+    }
+    for (unsigned int p = 0; p < mida_finestra; ++p)
+    { //algoritme d'ordenacio
+      int min = p;
+      for (int k = p + 1; k < mida_finestra; k++)
+      {
+        if (finestra[min] > finestra[k])
+        {
+          min = k;
+        }
+      }
+      aux_ord = finestra[p];
+      finestra[p] = finestra[min];
+      finestra[min] = aux_ord;
+    }
+
+    f0[i] = finestra[1]; //la mostra que ha quedat al mig serà la bona
+    //apliquem el filtre a partir de la mostra 1 fins N-1 per evitar problemes amb marges
+  }
+```
 
 Evaluación *ciega* del detector
 -------------------------------
