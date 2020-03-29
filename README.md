@@ -305,7 +305,12 @@ de pitch molt elevat (87% d'accuracy aproximadament).
      detector de Wavesurfer. Aunque puede usarse Wavesurfer para obtener la representación, se valorará
    el uso de alternativas de mayor calidad (particularmente Python).
 
+`MOSTRA 1:`
+
 <img src="img/results1.png" width="640" align="center">
+
+`MOSTRA 2:`
+
 <img src="img/results2.png" width="640" align="center">
    
 
