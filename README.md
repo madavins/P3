@@ -160,6 +160,8 @@ Ejercicios básicos
 * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
 
+    `Codi utilitzat:`
+
      ```cpp
      vector<float>::const_iterator iR = r.begin(), iRMax = iR;
      //Creem dos iteradors auxiliars, que pendran els valors immediament inferior i posterior
@@ -226,6 +228,8 @@ Ejercicios básicos
   decretem el segment com UNVOICED. D'aquesta manera podem corregir els punts on un dels dos paràmetres
   pren un valor erroni o incoherent, i compensem així aquest tipus d'errors.
 
+`Codi utilitzat:`
+
 ```cpp
 if (pot < -50.5 || r1norm < 0.70 || rmaxnorm < 0.3 || (r1norm < 0.935 && rmaxnorm < 0.4))
   {
@@ -281,7 +285,7 @@ if (pot < -50.5 || r1norm < 0.70 || rmaxnorm < 0.3 || (r1norm < 0.935 && rmaxnor
 
   Comparant el resultat del nostre sistema amb la detecció del Wavesurfer veiem que obtenim resultats que, en la seva gran 
   majoria, guarden una gran semblança. Les principals diferències que podem observar entre la nostra detecció respecte la 
-  del Wavesurfer són certs certs pics on el nostre sistema detecta un tram VOICED quan realment no ho és. Aquests pics 
+  del Wavesurfer són certs certs pics, on el nostre sistema detecta un tram VOICED quan realment no ho és. Aquests pics 
   representen un error que pot ser fàcilment correjit ajustant els paràmetres en detecció i, sobretot, aplicant un filtre 
   de mediana en l'etapa de postprocessament, tal com veurem en els següents apartats.
   De tota manera, arribem a la conclusió que el nostre sistema funciona correctament, tot i que encara el podem millorar.
@@ -350,8 +354,8 @@ en posar a 0 els valors de la senyal que no superin un cert threshold. D'aquesta
 senyal que no ens interessa i quedar-nos amb la part útil, és a dir, la part que està per sobre d'aquest límit. Fent 
 recerca hem vist que el valor òptim del límit és el 30% del valor màxim de la senyal, de tota manera, en el nostre cas 
 obtenim un millor resultat si utilitzem com a límit el 80% de la potència de la senyal.
-En el nostre cas, el fet d'afegir el center clipping ha suposat una millora d'un 1% en el percentatge total d'evaluació 
-utilitzant els fitxer de la base de dades.
+El fet d'afegir el center clipping ha suposat una millora d'un 1% en el percentatge total d'evaluació utilitzant els fitxer
+de la base de dades.
 
 
 <img src="img/clipping.png" width="720" align="center">
@@ -360,6 +364,8 @@ utilitzant els fitxer de la base de dades.
 En aquest plot de Matlab podem veure l'efecte del center clipping en una senyal sonora. És evident que eliminem part de la
 senyal que no ens és útil, però mantenim les parts que ens són més útils, és a dir, els màxims.
 ```
+`Codi utilitzat:`
+
 ```cpp
 for (unsigned int i = 0; i < x.size(); i++)//Càlcul del llindar
   {
@@ -390,19 +396,21 @@ for (unsigned int i = 0; i < x.size(); i++)//Càlcul del llindar
 ### POSTPROCESADO: *FILTRO DE MEDIANA*
 
 En la part de postprocessat apliquem la tècinca del filtre de mediana. Aquest és un filtre de funcionament senzill, 
-però és alhora afectiu. Consisteix en recórrer cada valor del vector on emmagatzemem les freqüències de pitch, i 
+però és alhora efectiu. Consisteix en recórrer cada valor del vector on emmagatzemem les freqüències de pitch, i 
 reemplaçar-lo per el valor de la mediana dels valors del voltant. Aquest filtre ens ajudarà a eliminar certs errors 
 puntuals, com ara els pics que ja hem mencionat en un dels apartats anteriors. De tota manera, aquest filtre no ajuda a 
-millorar quantitativament la puntuació total, tot i que ens soluciona errors significatius en la senyal.
+millorar quantitativament la puntuació total, tot i que ens soluciona errors significatius de la senyal.
 
-Considerant quina és la mida hauria de tenir la finestra nosaltres hem probat els dos valors que ens han semblat més 
+Considerant quina és la mida que hauria de tenir la finestra nosaltres hem probat els dos valors que ens han semblat més 
 adients, aquests són 3 i 5. En la imatge següent podem veure els resultats obtinguts utilitzant cada una de les finestres. 
-Podem concloure que obtenim millors resultats si utilitzem una finestra de 3 espais, ja que aconseguim corretjir certs 
-errors de la senyal sense introduïr una distorsió notòria, cosa que sí que passa amb la finestra de 5 posicions. Per últim, 
+Podem concloure que obtenim millors resultats si utilitzem una finestra de 3 espais, ja que aconseguim corregir certs 
+errors de la senyal sense introduir una distorsió notòria, cosa que sí que passa amb la finestra de 5 posicions. Per últim, 
 cal mencionar que el filtre no s'aplica en els extrems del vector de freqüències ja que són valors complicats d'analitzar i 
 que tampoc tenen rellevància en el resultat final.
 
 <img src="img/mediana.png" width="720" align="center">
+
+`Codi utilitzat:`
 
 ```cpp
   unsigned int mida_finestra = 3;
